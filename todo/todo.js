@@ -23,6 +23,12 @@ const listData = () => {
     return todoList
 }
 
+const listCompleted = (completed) => {
+    loadData()
+    let dataCompleted = todoList.filter(task => task.completed === completed)
+    return dataCompleted
+}
+
 const updateTask = (description, completed) => {
     loadData()
 
@@ -67,5 +73,6 @@ module.exports = {
     create,
     listData,
     updateTask,
-    deleteTask
+    deleteTask,
+    listCompleted
 }

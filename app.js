@@ -11,13 +11,24 @@ switch (command) {
         break;
     case 'list':
         let tasks = todo.listData()
+        let completedTasks = todo.listCompleted(argv.completed)
 
-        for (let task of tasks){
-            console.log('============TO DO============'.green)
-            console.log(task.description)
-            console.log('Estado: ', task.completed)
-            console.log('============================='.green)
+        if(!completedTasks.length) {
+            for (let task of tasks){
+                console.log('============TO DO============'.green)
+                console.log(task.description)
+                console.log('Estado: ', task.completed)
+                console.log('============================='.green)
+            }
+        } else {
+            for (let task of completedTasks){
+                console.log('============TO DO============'.green)
+                console.log(task.description)
+                console.log('Estado: ', task.completed)
+                console.log('============================='.green)
+            }
         }
+
         break
     case 'update':
         let updated = todo.updateTask(argv.description, argv.completed)

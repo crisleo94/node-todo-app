@@ -21,6 +21,9 @@ const argv = require('yargs')
     .command('delete', 'Delete a selected task.',  {
         description
     })
+    .command('list', 'List data depending on completed state', {
+        completed
+    })
     .help()
     .argv
 
